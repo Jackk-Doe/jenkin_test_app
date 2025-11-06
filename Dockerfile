@@ -1,5 +1,5 @@
 # build executable binary
-FROM golang:1.22.2-alpine as builder
+FROM golang:1.24.9-alpine as builder
 
 ENV CGO_ENABLED 0
 ENV GOOS "linux"
@@ -7,9 +7,11 @@ ENV GOARCH "amd64"
 
 WORKDIR /build
 
+RUN apk add --no-cache ca-certificates git tzdata
+
 COPY go.mod .
 COPY go.sum .
-RUN apk add --no-cache ca-certificates git tzdata && go mod tidy
+RUN go mod tidy
 
 COPY . .
 
