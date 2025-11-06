@@ -7,7 +7,7 @@ pipeline {
         DOCKERHUB_CREDS = credentials('dockerhub-creds')
         SSH_CREDS = credentials('vm-ssh-password')
         DEPLOY_HOST = '143.198.199.4'             // ⬅️ replace with your VM IP or domain
-        DEPLOY_PATH = '/jenkin_test_app'           // ⬅️ folder containing docker-compose.yml
+        DEPLOY_PATH = 'jenkin_test_app'           // ⬅️ folder containing docker-compose.yml
     }
 
     triggers {
